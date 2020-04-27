@@ -1,17 +1,3 @@
-Radu Emanuel Ioan 336CC
-
-Tema 3 Sisteme de Operare - Loader de Executabile
-
-Toată logica se află în fișierul loader.c.
-
-Tema a avut ca scop implementarea unui handler care să gestioneze apariția
-de evenimente de tipul page fault în momentul încărcării în memorie a unui
-fișier executabil.
-
-Funcția so_init_loader are rolul de a inițializa handlerul - segv_handler,
-apelat în momentul producerii unui segmentation fault (SIGSEGV). 
-Am preluat-o din laboratorul 6 de SO.
-
 Funcția segv_handler tratează un eveniment de tip page fault. În cazul în
 care semnalul primit este diferit de SIGSEGV, apelez handlerul default.
 La fel procedez și pentru o adresă deja mapată în memorie indicată de
@@ -25,15 +11,3 @@ Mai departe, dacă adresa se regăsește în cadrul unui segment, verific
 daca întreaga pagină se regăsește în fișier și în acest caz o mapez
 în memorie cu MAP_FIXED | MAP_PRIVATE. Dacă se află în afara fișierului,
 o mapez în memorie cu MAP_ANONYMOUS care face implicit zezorizarea. 
-
-Nu am tratat cazul în care doar o parte dintr-o pagină se găsește în fișier
-și din acest caz nu trec toate testele.
-Per total tema mi s-a parut interesantă pentru că am văzut cum funționează
-un handler ce trateaza diferitele evenimente apărute. A durat ceva mai mul
-să o înțeleg, dar după aceea, implementare a fost destul de simplă.
-
-Materiale utilizate:
-https://ocw.cs.pub.ro/courses/so/laboratoare/laborator-04
-https://ocw.cs.pub.ro/courses/so/laboratoare/laborator-06
-
-
